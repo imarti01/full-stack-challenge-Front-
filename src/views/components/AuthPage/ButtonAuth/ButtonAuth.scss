@@ -1,0 +1,47 @@
+@import "../../../../scss/theme/variables";
+@import "../../../../scss/styles/mixins";
+
+.button-auth {
+    @include flexRow(center, space-between);
+    height: 2.5rem;
+    width: 18rem;
+    background-color: $gray-color;
+    border-radius: 28rem;
+    position: relative;
+    box-shadow: 1px 1px 10px 0px #9898;
+
+    &__login, &__signup {
+        @include flexRow(center, center);
+        height: 100%;
+        width: 100%;
+        z-index: 1;
+        flex-grow: 1;
+        cursor: pointer;
+        color: $white-color;
+    }
+
+    &__login--purple-text, &__signup--purple-text {
+        color: $purple-color;
+    }
+
+    &__board {
+        height: (2.5rem)*1.05;
+        width: (18rem)*0.5;
+        position: absolute;
+        background-color: $purple-color;
+        z-index: 0;
+        transition: transform 0.3s;
+        box-shadow: 1px 1px 10px 0px #989898;
+    }
+
+    &__left {
+        border-radius: 28rem;
+    }
+
+    &__right {
+        transform: translate((18rem - 18rem/2) + 18rem*0.012 , 2.5rem*-0.01);
+        border-radius: 28rem;
+        background-color: $purple-color;
+      }
+
+}

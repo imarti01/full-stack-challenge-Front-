@@ -1,0 +1,16 @@
+@import "../../../scss/styles/mixins";
+@import "../../../scss/theme/breakpoints";
+.auth-layout {
+    @include flexCol(center, space-between);
+    width: 100%;
+    min-height: 100vh;
+    padding: 2.5rem;
+
+    &__logo {
+        width:12rem;
+
+        @include sm {
+            width: 20rem;
+        }
+    }
+}

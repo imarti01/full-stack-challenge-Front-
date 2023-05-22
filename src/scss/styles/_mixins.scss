@@ -1,0 +1,98 @@
+@mixin scrollbar ($colorBar, $colorBg) {
+    ::-webkit-scrollbar {
+        width: 0.3rem; 
+      }
+      
+    ::-webkit-scrollbar-track {
+       background: $colorBg;
+     }
+      
+     ::-webkit-scrollbar-thumb {
+       background: $colorBar;
+       border-radius: 1rem;
+     }
+      
+}
+
+@mixin flexCol ($align, $justify){
+    display: flex;
+    flex-direction: column;
+    align-items: $align;
+    justify-content: $justify;
+}
+
+@mixin flexRow ($align, $justify) {
+    display: flex;
+    flex-direction: row;
+    align-items: $align;
+    justify-content: $justify;
+}
+
+@mixin inputSearchCancelBtn () {
+    input[type="search"]::-webkit-search-cancel-button {
+        -webkit-appearance: none;
+        height: 24px;
+        width: 24px;
+        margin-left: 0.4em;
+        background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23777'><path d='M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z'/></svg>");
+        cursor: pointer;
+    }
+}
+
+@mixin authButton() {
+    width: 18rem;
+    height: 2.5rem;
+    border: none;
+    border-radius: 0.5rem;
+    box-shadow: 1px 1px 10px 0px #9898;
+    background-color: $purple-color;
+    color: $white-color;
+    font-size: 1.1rem;
+    cursor: pointer;
+
+    &:hover{
+      background-color: $alert-color;
+      transition: all 0.3s ease;
+    }
+
+    &:active {
+      transform: scale(0.99);
+    }
+}
+
+@mixin authInput(){
+    width: 18rem;
+    height: 2.5rem;
+    border: none;
+    box-shadow: 1px 1px 10px 0px #9898;
+    background-color: $gray-color;
+    padding: 0.5rem 1rem;
+    font-family: $rubik;
+    outline-color: $purple-color;
+    color: $purple-color;
+    border-radius: 0.5rem;
+    
+    &::placeholder{
+        color: $purple-color;
+        font-size: 1rem;
+    }
+
+    &--alert {
+        outline: $alert-color;
+        border: 1px solid $alert-color;
+    }
+
+    &:-webkit-autofill {
+       -webkit-box-shadow: 0 0 0px 1000px $gray-color inset;
+       -webkit-text-fill-color: $purple-color;
+    }
+}
+
+@mixin alertAuthMessage(){
+    font-size: 0.8rem;
+    padding: 0.3rem 0.2rem;
+    margin-bottom: 0.2rem;
+    width: 18rem;
+    height: 1.5rem;
+    color: $alert-color;
+}

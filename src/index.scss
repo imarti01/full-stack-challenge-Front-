@@ -1,0 +1,21 @@
+@import "./scss/styles/mixins";
+@import "./scss/theme/variables";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body{
+  background-color: $white-color;
+  color: $purple-color;
+  font-family: $montserrat;
+}
+
+#root {
+  padding: 0;
+  margin: 0;
+}
+
+@include scrollbar($purple-color, $white-color)
