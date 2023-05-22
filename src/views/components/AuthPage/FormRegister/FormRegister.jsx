@@ -1,5 +1,6 @@
 import { useForm } from 'react-hook-form';
 import './FormRegister.scss';
+import { registerRequest } from '../../../../api/authRequests';
 
 export const FormRegister = () => {
   const {
@@ -8,7 +9,10 @@ export const FormRegister = () => {
     formState: { errors },
   } = useForm();
 
-  const onSubmit = (data) => console.log(data);
+  const onSubmit = async (data) => {
+    const res = await registerRequest(data);
+    console.log(res);
+  };
 
   return (
     <form className="form-register" onSubmit={handleSubmit(onSubmit)}>
