@@ -4,16 +4,60 @@
 
 .button-login{
     font-size: 2rem;
+    color: $purple-color;
+
+    &:link, &:visited, &:active{
+        text-decoration: none;
+    }
 }
 
 .button-info-user{
-    @include flexRow(center, space-between);
-    background-color: $gray-color;
-    padding: 0.4rem 0.9rem 0.4rem 1rem;
-    border-radius: 3rem;
-    box-shadow: 1px 1px 10px 0px #9898;
+    position: relative;
+    
+    &__button{
+        @include flexRow(center, space-between);
+        background-color: $gray-color;
+        padding: 0.4rem 0.9rem 0.4rem 1rem;
+        border-radius: 3rem;
+        box-shadow: 1px 1px 10px 0px #9898;
+        cursor: pointer;
+        
+        &__arrow{
+            margin-left: 0.2rem;
+        }
+    }
+    
+    &__modal {
+        
+        &--active {
+            @include flexCol(flex-start, flex-start);
+            position: fixed;
+            top: 3.6rem;
+            right: 1rem;
+            z-index: 30;
+            background-color: $gray-color;
+            width: 10rem;
+            height: 7rem;
+            border-radius: 0.5rem;
+            box-shadow: 1px 1px 10px 0px #9898;
+            list-style: none;
+            padding: 0.5rem;
+            
+            li {
+                padding: 0.4rem 0.6rem;
+                cursor: pointer;
+                width: 100%;
+                
+                &:hover{
+                    background-color: $alert-color;
+                    border-radius: 1rem;
+                    color: $white-color;
+                }
+            }
+        }
 
-    &__arrow{
-        margin-left: 0.2rem;
+        &--disactive {
+            display: none;
+        }
     }
 }

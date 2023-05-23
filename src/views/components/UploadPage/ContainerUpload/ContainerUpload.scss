@@ -1,0 +1,15 @@
+@import "../../../../scss/theme/variables";
+@import "../../../../scss/styles/mixins";
+
+.container-upload {
+    @include flexCol(center, space-between);
+    width: 100%;
+    min-height: 100vh;
+    background-color: $purple-color;
+    padding: 2.5rem;
+
+    &__logo {
+        width: 15rem;
+    }
+
+}

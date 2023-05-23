@@ -5,6 +5,10 @@
     @include flexCol(center, center);
     @include inputSearchCancelBtn();
     width: 100%;
+    position: fixed;
+    top: 6rem;
+    background-color: $white-color;
+    z-index: 10;
 
     &__input {
         background-color: $purple-color;

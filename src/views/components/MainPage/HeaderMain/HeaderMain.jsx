@@ -3,11 +3,11 @@ import { ButtonLogin } from '../ButtonLogin/ButtonLogin';
 
 import './HeaderMain.scss';
 
-export const HeaderMain = () => {
+export const HeaderMain = ({ isModalOpen, setIsModalOpen }) => {
   return (
     <header className="header-main">
       <Logo className="header-main__logo" />
-      <ButtonLogin />
+      <ButtonLogin setIsModalOpen={setIsModalOpen} isModalOpen={isModalOpen} />
     </header>
   );
 };

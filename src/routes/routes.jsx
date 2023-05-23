@@ -12,6 +12,8 @@ const DashboardPage = lazy(() => import('../views/pages/DashboardPage'));
 const TagFilterResults = lazy(() =>
   import('../views/components/MainPage/TagFilterResults/TagFilterResults')
 );
+const UploadPage = lazy(() => import('../views/pages/UploadPage'));
+const PrivateRoute = lazy(() => import('../routes/PrivateRoute'));
 
 export const router = createBrowserRouter([
   {
@@ -73,5 +75,15 @@ export const router = createBrowserRouter([
         ),
       },
     ],
+  },
+  {
+    path: '/uploadGif',
+    element: (
+      <Suspense fallback={<Skeleton count={20} />}>
+        <PrivateRoute>
+          <UploadPage />
+        </PrivateRoute>
+      </Suspense>
+    ),
   },
 ]);

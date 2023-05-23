@@ -1,0 +1,13 @@
+@import "../../../../scss/theme/variables";
+@import "../../../../scss/styles/mixins";
+
+.form-upload {
+    @include flexCol(flex-start, space-between);
+    height: 27rem;
+    width: 27rem;
+    color: $white-color;
+
+    span {
+        font-size: 2rem;
+    }
+}
