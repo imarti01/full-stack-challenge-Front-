@@ -1,0 +1,34 @@
+@import "../../../../scss/theme/variables";
+@import "../../../../scss/styles/mixins";
+
+.gif-card {
+    @include flexCol(center, space-between);
+    width: 20rem;
+
+    img {
+        width: 100%;
+        height: 75%;
+        object-fit: cover;
+    }
+
+    &__link-copied{
+        width: 100%;
+        background-color: $alert-color;
+        padding: 1rem;
+    }
+
+    &__copy-link{
+        width: 100%;
+        padding: 1rem;
+        
+        &:hover{
+            background-color: $purple-color;
+            color: $white-color;
+            cursor: pointer;
+        }
+    }
+}
+
+
+
+

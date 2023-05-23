@@ -1,0 +1,19 @@
+@import "../../../../scss/theme/variables";
+@import "../../../../scss/styles/mixins";
+
+
+.button-login{
+    font-size: 2rem;
+}
+
+.button-info-user{
+    @include flexRow(center, space-between);
+    background-color: $gray-color;
+    padding: 0.4rem 0.9rem 0.4rem 1rem;
+    border-radius: 3rem;
+    box-shadow: 1px 1px 10px 0px #9898;
+
+    &__arrow{
+        margin-left: 0.2rem;
+    }
+}

@@ -1,5 +1,5 @@
-import { ButtonLogin } from '../../ButtonLogin/ButtonLogin';
 import { Logo } from '../../Logo/Logo';
+import { ButtonLogin } from '../ButtonLogin/ButtonLogin';
 
 import './HeaderMain.scss';
 

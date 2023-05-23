@@ -1,0 +1,47 @@
+@import "../../../../scss/theme/variables";
+@import "../../../../scss/styles/mixins";
+
+.search-nav{
+    @include flexCol(center, center);
+    @include inputSearchCancelBtn();
+    width: 100%;
+
+    &__input {
+        background-color: $purple-color;
+        border: none;
+        width: 90%;
+        font-size: 1rem;
+        font-family: $montserrat;
+        color: $white-color;
+        padding: 0.5rem 1rem;
+        border-radius: 10rem;
+        outline-color: $alert-color;
+        box-shadow: 2px 2px 10px 2px #9898;
+
+        &::placeholder {
+            color: $gray-color;
+        }
+    }
+
+    &__filter {
+        @include flexRow(center, space-between);
+        width: 35rem;
+        height: 4rem;
+        
+        a {
+            background-color: $gray-color;
+            text-align: center;
+            width: 7rem;
+            padding: 0.5rem 1rem;
+            border-radius: 18rem;
+            color: $purple-color;
+            cursor: pointer;
+            box-shadow: 1px 1px 10px 0px #9898;
+
+            &:link, &:visited, &:active {
+                text-decoration: none;
+            }
+        }
+    }
+
+}

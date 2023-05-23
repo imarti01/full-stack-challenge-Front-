@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import { UserContext } from '../../../context/UserContext';
+import { UserContext } from '../../../../context/UserContext';
 import { IoMdLogIn } from 'react-icons/io';
 import { MdKeyboardArrowDown } from 'react-icons/md';
 import { MdKeyboardArrowUp } from 'react-icons/md';
@@ -15,7 +15,7 @@ export const ButtonLogin = () => {
       ) : (
         <p className="button-info-user">
           {userState.username}
-          <MdKeyboardArrowDown />
+          <MdKeyboardArrowDown className="button-info-user__arrow" />
         </p>
       )}
     </>

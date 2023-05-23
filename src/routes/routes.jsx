@@ -9,6 +9,9 @@ const MainPage = lazy(() => import('../views/pages/MainPage'));
 const LoginPage = lazy(() => import('../views/pages/LoginPage'));
 const RegisterPage = lazy(() => import('../views/pages/RegisterPage'));
 const DashboardPage = lazy(() => import('../views/pages/DashboardPage'));
+const TagFilterResults = lazy(() =>
+  import('../views/components/MainPage/TagFilterResults/TagFilterResults')
+);
 
 export const router = createBrowserRouter([
   {
@@ -24,6 +27,14 @@ export const router = createBrowserRouter([
         element: (
           <Suspense fallback={<Skeleton count={20} />}>
             <MainPage />
+          </Suspense>
+        ),
+      },
+      {
+        path: '/:tag',
+        element: (
+          <Suspense fallback={<Skeleton count={20} />}>
+            <TagFilterResults />
           </Suspense>
         ),
       },
