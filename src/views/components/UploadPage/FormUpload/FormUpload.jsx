@@ -3,9 +3,11 @@ import { BsFillSendFill } from 'react-icons/bs';
 
 import './FormUpload.scss';
 import { addGifRequest } from '../../../../api/gifUserRequests';
+import { useNavigate } from 'react-router-dom';
 
 export const FormUpload = () => {
   const tagInput = useRef();
+  const navigate = useNavigate();
 
   const [formUpload, setFormUpload] = useState({
     title: '',
@@ -37,7 +39,9 @@ export const FormUpload = () => {
     formData.append('file', formUpload.file);
 
     const res = await addGifRequest(formData);
-    console.log(res);
+    if (res.data?.ok) {
+      navigate('/dashboard');
+    }
   };
 
   return (

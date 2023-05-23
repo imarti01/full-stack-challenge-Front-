@@ -1,10 +1,10 @@
 import { useQuery } from '@tanstack/react-query';
 import { getTrendingGifs } from '../../../../api/gifApiRequests';
-import { GifCard } from '../GifCard/GifCard';
 import { MdOutlineArrowBackIosNew } from 'react-icons/md';
 import { MdOutlineArrowForwardIos } from 'react-icons/md';
 import './TrendingContainer.scss';
 import { useCarousel } from '../../../../hooks/useCarousel';
+import { GifCard } from '../../GifCard/GifCard';
 
 export const TrendingContainer = () => {
   const { carousel, prevCard, nextCard } = useCarousel();

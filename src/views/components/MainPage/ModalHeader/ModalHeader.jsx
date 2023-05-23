@@ -11,7 +11,7 @@ export const ModalHeader = ({ isModalOpen, setIsModalOpen }) => {
       onMouseLeave={() => setIsModalOpen(false)}
     >
       <li onClick={() => navigate('/uploadGif')}>Add Gif</li>
-      <li>Dashboard</li>
+      <li onClick={() => navigate('/dashboard')}>Dashboard</li>
       <li>Logout</li>
     </ul>
   );

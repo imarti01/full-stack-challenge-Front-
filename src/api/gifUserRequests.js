@@ -11,3 +11,11 @@ export const addGifRequest = async (gifData) => {
     })
     .catch((res) => res.response.data.msg);
 };
+
+export const getAllUserGifs = async () => {
+  return await axios.get(`${API_URL}/gifs/getAllUserGifs`, {
+    headers: {
+      'x-token': localStorage.getItem('token'),
+    },
+  });
+};
