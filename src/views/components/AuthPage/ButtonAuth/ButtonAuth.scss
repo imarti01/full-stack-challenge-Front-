@@ -39,7 +39,7 @@
     }
 
     &__right {
-        transform: translate((18rem - 18rem/2) + 18rem*0.012 , 2.5rem*-0.01);
+        transform: translate(9rem + 18rem*0.012 , 2.5rem*-0.01);
         border-radius: 28rem;
         background-color: $purple-color;
       }

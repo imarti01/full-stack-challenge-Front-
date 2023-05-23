@@ -1,8 +1,15 @@
 import { useForm } from 'react-hook-form';
 import './FormRegister.scss';
 import { registerRequest } from '../../../../api/authRequests';
+import Swal from 'sweetalert2';
+import { useContext } from 'react';
+import { UserContext } from '../../../../context/UserContext';
+import { useNavigate } from 'react-router-dom';
 
 export const FormRegister = () => {
+  const { authUser } = useContext(UserContext);
+  const navigate = useNavigate();
+
   const {
     register,
     handleSubmit,
@@ -11,7 +18,18 @@ export const FormRegister = () => {
 
   const onSubmit = async (data) => {
     const res = await registerRequest(data);
-    console.log(res);
+    if (res.data?.ok) {
+      authUser(res.data.user);
+      navigate('/');
+    } else {
+      Swal.fire({
+        icon: 'error',
+        title: `${res}`,
+        confirmButtonColor: '#EB1D36',
+        iconColor: '#EB1D36',
+        color: '#35185A',
+      });
+    }
   };
 
   return (
@@ -65,7 +83,7 @@ export const FormRegister = () => {
       />
       <span role="alert">{errors.password?.message}</span>
       <button className="form-register__btn" type="submit">
-        Log In
+        Sign Up
       </button>
     </form>
   );

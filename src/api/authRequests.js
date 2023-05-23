@@ -7,3 +7,9 @@ export const registerRequest = async (userData) => {
     .post(`${API_URL}/user/register`, userData)
     .catch((res) => res.response.data.msg);
 };
+
+export const checkIsLogged = async (token) => {
+  return await axios
+    .get(`${API_URL}/user/isLogged`, { headers: { 'x-token': token } })
+    .catch((res) => res.response.data.msg);
+};
