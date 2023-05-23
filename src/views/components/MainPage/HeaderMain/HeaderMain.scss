@@ -1,0 +1,11 @@
+@import "../../../../scss/theme/variables";
+@import "../../../../scss/styles/mixins";
+
+.header-main{
+    @include flexRow(center, space-between);
+    padding: 1rem;
+
+    &__logo {
+        width: 8rem;
+    }
+}

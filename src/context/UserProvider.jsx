@@ -6,7 +6,7 @@ import { checkIsLogged } from '../api/authRequests';
 import { useNavigate } from 'react-router-dom';
 
 const initialState = {
-  user: null,
+  username: null,
   gifs: null,
 };
 

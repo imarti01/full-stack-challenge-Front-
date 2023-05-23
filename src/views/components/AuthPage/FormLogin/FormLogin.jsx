@@ -1,14 +1,36 @@
 import { useForm } from 'react-hook-form';
 import './FormLogin.scss';
+import { loginRequest } from '../../../../api/authRequests';
+import { useContext } from 'react';
+import { UserContext } from '../../../../context/UserContext';
+import { useNavigate } from 'react-router-dom';
+import Swal from 'sweetalert2';
 
 export const FormLogin = () => {
+  const { authUser } = useContext(UserContext);
+  const navigate = useNavigate();
+
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
 
-  const onSubmit = (data) => console.log(data);
+  const onSubmit = async (data) => {
+    const res = await loginRequest(data);
+    if (res.data?.ok) {
+      authUser(res.data.user);
+      navigate('/');
+    } else {
+      Swal.fire({
+        icon: 'error',
+        title: `${res}`,
+        confirmButtonColor: '#EB1D36',
+        iconColor: '#EB1D36',
+        color: '#35185A',
+      });
+    }
+  };
 
   return (
     <form className="form-login" onSubmit={handleSubmit(onSubmit)}>
