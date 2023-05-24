@@ -6,6 +6,7 @@ import { useContext, useState } from 'react';
 import Swal from 'sweetalert2';
 import { deleteGifRequest } from '../../../../api/gifUserRequests';
 import { UserContext } from '../../../../context/UserContext';
+import './ContainerOwnGifs.scss';
 
 export const ContainerOwnGifs = ({ gifs }) => {
   const [gifToEdit, setGifToEdit] = useState(null);
@@ -41,14 +42,17 @@ export const ContainerOwnGifs = ({ gifs }) => {
   };
 
   return (
-    <div>
+    <div className="container-own-gifs">
       {gifs.map((gif) => (
-        <div key={gif._id}>
-          <span>
-            <MdModeEditOutline onClick={() => setGifToEdit(gif)} />
+        <div className="container-own-gifs__gifs" key={gif._id}>
+          <GifCard url={gif.url} title={gif.title} tags={gif.tags} />
+          <span className="container-own-gifs__gifs--icons">
+            <MdModeEditOutline
+              className="container-own-gifs__gifs--icons--edit"
+              onClick={() => setGifToEdit(gif)}
+            />
             <AiTwotoneDelete onClick={() => deleteGif(gif._id)} />
           </span>
-          <GifCard url={gif.url} title={gif.title} tags={gif.tags} />
         </div>
       ))}
       {gifToEdit && (

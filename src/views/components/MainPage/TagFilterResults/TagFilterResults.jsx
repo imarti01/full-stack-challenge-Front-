@@ -3,6 +3,7 @@ import { getGifsByTag } from '../../../../api/gifUserRequests';
 import { useQuery } from '@tanstack/react-query';
 import { useEffect } from 'react';
 import { GifCard } from '../../GifCard/GifCard';
+import './TagFilterResults.scss';
 
 const TagFilterResults = () => {
   const { tag } = useParams();
@@ -13,7 +14,7 @@ const TagFilterResults = () => {
   });
 
   return (
-    <div>
+    <div className="tag-filter-results">
       {error && <h2>{error.message}</h2>}
       {!isLoading &&
         data?.data.tagResults.map(({ url, title, tags, _id }) => (

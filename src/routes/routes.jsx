@@ -12,6 +12,9 @@ const DashboardPage = lazy(() => import('../views/pages/DashboardPage'));
 const TagFilterResults = lazy(() =>
   import('../views/components/MainPage/TagFilterResults/TagFilterResults')
 );
+const SearchResults = lazy(() =>
+  import('../views/components/MainPage/SearchResults/SearchResults')
+);
 const UploadPage = lazy(() => import('../views/pages/UploadPage'));
 const PrivateRoute = lazy(() => import('../routes/PrivateRoute'));
 
@@ -37,6 +40,14 @@ export const router = createBrowserRouter([
         element: (
           <Suspense fallback={<Skeleton count={20} />}>
             <TagFilterResults />
+          </Suspense>
+        ),
+      },
+      {
+        path: '/search/:query',
+        element: (
+          <Suspense fallback={<Skeleton count={20} />}>
+            <SearchResults />
           </Suspense>
         ),
       },

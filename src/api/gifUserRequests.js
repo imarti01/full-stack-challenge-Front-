@@ -44,10 +44,18 @@ export const deleteGifRequest = async (gifId) => {
 
 export const getGifsByTag = async (tag) => {
   return await axios
-    .get(`${API_URL}/gifs/getByTag/${tag}`, {
-      headers: {
-        'x-token': localStorage.getItem('token'),
-      },
-    })
+    .get(`${API_URL}/gifs/getByTag/${tag}`)
+    .catch((res) => res.response.data.msg);
+};
+
+export const getGifsByQuery = async (query) => {
+  return await axios
+    .get(`${API_URL}/gifs/getByQuery/${query}`)
+    .catch((res) => res.response.data.msg);
+};
+
+export const getLastCreatedGif = async () => {
+  return await axios
+    .get(`${API_URL}/gifs/getLastGifs`)
     .catch((res) => res.response.data.msg);
 };

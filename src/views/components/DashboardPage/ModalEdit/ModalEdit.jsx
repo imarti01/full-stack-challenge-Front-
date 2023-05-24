@@ -2,6 +2,7 @@ import { useContext, useRef, useState } from 'react';
 import { IoIosClose } from 'react-icons/io';
 import { editGifRequest } from '../../../../api/gifUserRequests';
 import { UserContext } from '../../../../context/UserContext';
+import './ModalEdit.scss';
 
 export const ModalEdit = ({ gifToEdit, setGifToEdit }) => {
   const [title, setTitle] = useState(gifToEdit.title);
@@ -26,9 +27,9 @@ export const ModalEdit = ({ gifToEdit, setGifToEdit }) => {
   };
 
   return (
-    <div>
-      <div></div>
-      <div>
+    <div className="modal-edit">
+      <div className="modal-edit__bg" onClick={() => setGifToEdit(null)}></div>
+      <div className="modal-edit__modal">
         <h2>EDIT</h2>
         <p>Title:</p>
         <input

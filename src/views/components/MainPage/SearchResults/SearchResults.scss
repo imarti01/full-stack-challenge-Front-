@@ -1,0 +1,17 @@
+@import "../../../../scss/theme/variables";
+@import "../../../../scss/styles/mixins";
+
+.search-results {
+    @include flexRow(center, center);
+    flex-wrap: wrap;
+    gap: 2rem;
+    width: 100%;
+    padding: 1rem 3rem 2rem;
+
+    &__not-find {
+        @include flexCol(center, space-evenly);
+        height: 7rem;
+        padding-top: 3rem;
+
+    }
+}

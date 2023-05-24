@@ -1,0 +1,14 @@
+@import "../../../../scss/theme/variables";
+@import "../../../../scss/styles/mixins";
+
+.last-uploads{
+    width: 100%;
+    padding: 1rem 3rem 2rem;
+
+    &__gif-container {
+        @include flexRow(center, center);
+        padding-top: 1rem;
+        flex-wrap: wrap;
+        gap: 2rem;
+    }   
+}

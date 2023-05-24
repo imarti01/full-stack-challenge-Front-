@@ -8,3 +8,7 @@ export const getTrendingGifs = async () => {
     `${API_URL}/gifs/trending?api_key=${API_KEY}&limit=25&rating=g`
   );
 };
+
+export const getRandomGif = async () => {
+  return await axios.get(`${API_URL}/gifs/random?api_key=${API_KEY}&rating=g`);
+};

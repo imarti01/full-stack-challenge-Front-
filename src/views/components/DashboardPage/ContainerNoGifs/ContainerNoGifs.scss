@@ -1,0 +1,21 @@
+@import "../../../../scss/theme/variables";
+@import "../../../../scss/styles/mixins";
+
+.container-nogifs {
+    @include flexCol(center, center);
+    width: 50rem;
+    height: 20rem;
+    border-radius: 1rem;
+    background-color: $gray-color;
+    font-size: 1.4rem;
+
+    &__icon {
+        font-size: 4rem;
+        margin-bottom: 1rem;
+        cursor: pointer;
+
+        &:hover {
+            color: $alert-color;
+        }
+    }
+}

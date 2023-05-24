@@ -1,8 +1,14 @@
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import './SearchNav.scss';
 
 export const SearchNav = () => {
   const location = useLocation();
+  const navigate = useNavigate();
+
+  const handleSearch = (e) => {
+    navigate(`/search/${e.target.value}`);
+    e.target.value = '';
+  };
 
   return (
     <div className="search-nav">
@@ -10,6 +16,7 @@ export const SearchNav = () => {
         type="search"
         className="search-nav__input"
         placeholder="Search a gif"
+        onKeyDown={(e) => e.key === 'Enter' && handleSearch(e)}
       />
       <nav className="search-nav__filter">
         <Link

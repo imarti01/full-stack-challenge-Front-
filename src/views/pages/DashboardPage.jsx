@@ -1,11 +1,10 @@
 import { useContext, useEffect, useState } from 'react';
 import { AddNav } from '../components/DashboardPage/AddNav/AddNav';
-import { useQuery } from '@tanstack/react-query';
 import { getAllUserGifs } from '../../api/gifUserRequests';
 import { ContainerOwnGifs } from '../components/DashboardPage/ContainerOwnGifs/ContainerOwnGifs';
 import { ContainerNoGifs } from '../components/DashboardPage/ContainerNoGifs/ContainerNoGifs';
 import { UserContext } from '../../context/UserContext';
-
+import './DashboardPage.scss';
 const DashboardPage = () => {
   const { userState, getUserGifs } = useContext(UserContext);
 
@@ -21,7 +20,7 @@ const DashboardPage = () => {
   }, []);
 
   return (
-    <div>
+    <div className="dashboard-page">
       <AddNav showAdd={userState?.gifs.length > 0 ? true : false} />
       {userState?.gifs.length > 0 ? (
         <ContainerOwnGifs gifs={userState.gifs} />
