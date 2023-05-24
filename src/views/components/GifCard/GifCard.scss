@@ -4,6 +4,12 @@
 .gif-card {
     @include flexCol(center, space-between);
     width: 20rem;
+    background-color: $gray-color;
+    width: 14.6rem;
+    height: 22.2rem;
+    border-radius: 1rem;
+    overflow: hidden;
+    box-shadow: 2px 2px 10px 2px #9898;
 
     img {
         width: 100%;
@@ -11,15 +17,35 @@
         object-fit: cover;
     }
 
+    &__tags {
+        @include flexRow(center, center);
+        flex-wrap: wrap;
+        font-size: 0.8rem;
+        color: $alert-color;
+
+        span {
+            padding: 0rem 0.2rem 0.3rem;
+            }
+        }
+
+    &__title-card{
+        padding: 0.5rem;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
     &__link-copied{
         width: 100%;
         background-color: $alert-color;
-        padding: 1rem;
+        padding: 0.7rem;
+        color: $white-color;
     }
 
     &__copy-link{
         width: 100%;
-        padding: 1rem;
+        padding: 0.7rem;
+        text-align: center;
         
         &:hover{
             background-color: $purple-color;

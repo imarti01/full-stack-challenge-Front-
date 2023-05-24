@@ -3,12 +3,9 @@
 
 .header-main{
     @include flexRow(center, space-between);
-    position: fixed;
-    top: 0;
     padding: 1rem;
     width: 100%;
     background-color: $white-color;
-    z-index: 10;
 
     &__logo {
         width: 8rem;

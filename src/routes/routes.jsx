@@ -44,7 +44,9 @@ export const router = createBrowserRouter([
         path: '/dashboard',
         element: (
           <Suspense fallback={<Skeleton count={20} />}>
-            <DashboardPage />
+            <PrivateRoute>
+              <DashboardPage />
+            </PrivateRoute>
           </Suspense>
         ),
       },

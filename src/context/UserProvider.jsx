@@ -7,7 +7,7 @@ import { useNavigate } from 'react-router-dom';
 
 const initialState = {
   username: null,
-  gifs: null,
+  gifs: [],
 };
 
 export const UserProvider = ({ children }) => {
@@ -30,8 +30,44 @@ export const UserProvider = ({ children }) => {
     localStorage.setItem('token', token);
     dispatch({ type: types.auth, payload: username });
   };
+
+  const logoutProvider = () => {
+    dispatch({ type: types.logout, payload: initialState });
+  };
+
+  const getUserGifs = (gifs) => {
+    dispatch({ type: types.get_gifs, payload: gifs });
+  };
+
+  const addGif = (gif) => {
+    const newGifsArr = [...userState.gifs, gif];
+    dispatch({ type: types.add_gif, payload: newGifsArr });
+  };
+
+  const editGif = (gifEdited) => {
+    const newGifsArr = userState.gifs.map((gif) =>
+      gif._id === gifEdited._id ? gifEdited : gif
+    );
+    dispatch({ type: types.edit_gif, payload: newGifsArr });
+  };
+
+  const deleteGifProvider = (gifId) => {
+    const newGifsArr = userState.gifs.filter((gif) => gif._id !== gifId);
+    dispatch({ type: types.delete_gif, payload: newGifsArr });
+  };
+
   return (
-    <UserContext.Provider value={{ userState, authUser }}>
+    <UserContext.Provider
+      value={{
+        userState,
+        authUser,
+        getUserGifs,
+        addGif,
+        logoutProvider,
+        editGif,
+        deleteGifProvider,
+      }}
+    >
       {children}
     </UserContext.Provider>
   );

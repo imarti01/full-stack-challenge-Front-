@@ -1,13 +1,16 @@
-import { useRef, useState } from 'react';
+import { useContext, useRef, useState } from 'react';
 import { BsFillSendFill } from 'react-icons/bs';
+import { IoIosClose } from 'react-icons/io';
 
 import './FormUpload.scss';
 import { addGifRequest } from '../../../../api/gifUserRequests';
 import { useNavigate } from 'react-router-dom';
+import { UserContext } from '../../../../context/UserContext';
 
 export const FormUpload = () => {
   const tagInput = useRef();
   const navigate = useNavigate();
+  const { addGif } = useContext(UserContext);
 
   const [formUpload, setFormUpload] = useState({
     title: '',
@@ -40,6 +43,7 @@ export const FormUpload = () => {
 
     const res = await addGifRequest(formData);
     if (res.data?.ok) {
+      addGif(res.data.newGif);
       navigate('/dashboard');
     }
   };
@@ -85,7 +89,14 @@ export const FormUpload = () => {
       />
       <ul>
         {tags.map((tag) => (
-          <li key={tag}>#{tag}</li>
+          <li key={tag}>
+            #{tag}
+            <IoIosClose
+              onClick={() => {
+                setTags(tags.filter((el) => el !== tag));
+              }}
+            />
+          </li>
         ))}
       </ul>
 

@@ -7,6 +7,7 @@
     
     &__gifs{
         @include flexRow(center, space-between);
+        padding-top: 0.5rem;
 
         &--arrow {
             font-size: 2rem;
@@ -32,14 +33,14 @@
 
             &--card {
                 background-color: $gray-color;
-                width: 16.5rem;
+                width: 16.4rem;
                 height: 25rem;
                 display: inline-block;
                 position: relative;
                 vertical-align: middle;
                 transition: 0.2s;
                 margin: 0rem 1rem;
-                border-radius: 4rem;
+                border-radius: 1rem;
                 overflow: hidden;
                 box-shadow: 2px 2px 10px 2px #9898;
 
@@ -49,8 +50,19 @@
                     object-fit: cover;
                 }
 
+                &__tags {
+                    @include flexRow(center, center);
+                    flex-wrap: wrap;
+                    font-size: 0.8rem;
+                    color: $alert-color;
+
+                    span {
+                        padding: 0rem 0.2rem 0.3rem;
+                    }
+                }
+
                 &__title-card{
-                    padding: 0.75rem 0.6rem 0.6rem;
+                    padding: 0.5rem;
                     overflow: hidden;
                     text-overflow: ellipsis;
                     white-space: nowrap;

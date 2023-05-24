@@ -5,10 +5,8 @@
     @include flexCol(center, center);
     @include inputSearchCancelBtn();
     width: 100%;
-    position: fixed;
     top: 6rem;
     background-color: $white-color;
-    z-index: 10;
 
     &__input {
         background-color: $purple-color;
@@ -33,18 +31,25 @@
         height: 4rem;
         
         a {
-            background-color: $gray-color;
             text-align: center;
             width: 7rem;
             padding: 0.5rem 1rem;
             border-radius: 18rem;
-            color: $purple-color;
             cursor: pointer;
-            box-shadow: 1px 1px 10px 0px #9898;
-
+            background-color: $gray-color;
+            
             &:link, &:visited, &:active {
                 text-decoration: none;
             }
+        }
+        
+        &--disactive {
+            box-shadow: 1px 1px 10px 0px #9898;
+        }
+        
+        &--active {
+            box-shadow: 1px 1px 6px 0px $alert-color;
+            color: $alert-color;
         }
     }
 
