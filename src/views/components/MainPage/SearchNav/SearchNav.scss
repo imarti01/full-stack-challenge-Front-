@@ -1,4 +1,5 @@
 @import "../../../../scss/theme/variables";
+@import "../../../../scss/theme/breakpoints";
 @import "../../../../scss/styles/mixins";
 
 .search-nav{
@@ -26,17 +27,34 @@
     }
 
     &__filter {
-        @include flexRow(center, space-between);
-        width: 35rem;
-        height: 4rem;
+        @include flexRow(center, space-around);
+        gap: 0.7rem;
+        flex-wrap: wrap;
+        padding: 1rem;
+        
+        @include sm {
+            justify-content: space-between;
+            width: 35rem;
+            height: 4rem;
+            flex-wrap: nowrap;
+            gap: 0;
+            padding: 0;
+        }
         
         a {
+            width: 3.5rem;
+            padding: 0.2rem 0rem;
             text-align: center;
-            width: 7rem;
-            padding: 0.5rem 1rem;
             border-radius: 18rem;
             cursor: pointer;
             background-color: $gray-color;
+            font-size: 0.7rem;
+            
+            @include sm {
+                width: 7rem;
+                padding: 0.5rem 1rem;
+                font-size: 1rem;
+            }
             
             &:link, &:visited, &:active {
                 text-decoration: none;

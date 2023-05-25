@@ -1,13 +1,20 @@
 @import "../../../../scss/theme/variables";
+@import "../../../../scss/theme/breakpoints";
 @import "../../../../scss/styles/mixins";
 
 .container-nogifs {
     @include flexCol(center, center);
-    width: 50rem;
-    height: 20rem;
     border-radius: 1rem;
     background-color: $gray-color;
     font-size: 1.4rem;
+    width: 90%;
+    height: 30rem;
+    text-align: center;
+    
+    @include sm { 
+        width: 50rem;
+        height: 20rem;
+    }
 
     &__icon {
         font-size: 4rem;

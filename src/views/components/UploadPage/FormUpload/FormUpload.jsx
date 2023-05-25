@@ -5,6 +5,7 @@ import './FormUpload.scss';
 import { addGifRequest } from '../../../../api/gifUserRequests';
 import { useNavigate } from 'react-router-dom';
 import { UserContext } from '../../../../context/UserContext';
+import { Spinner } from '../../Spinner/Spinner';
 
 export const FormUpload = () => {
   const tagInput = useRef();
@@ -52,6 +53,11 @@ export const FormUpload = () => {
 
   return (
     <form className="form-upload">
+      {
+        <div className="form-upload__spinner">
+          <Spinner />
+        </div>
+      }
       <p>
         <span>1.</span> Add the title of your Gif:
       </p>

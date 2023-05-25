@@ -1,11 +1,27 @@
 @import "../../../../scss/theme/variables";
+@import "../../../../scss/theme/breakpoints";
 @import "../../../../scss/styles/mixins";
 
 .form-upload {
     @include flexCol(flex-start, space-between);
-    height: 27rem;
-    width: 27rem;
     color: $white-color;
+    position: relative;
+    height: 40rem;
+    
+    @include sm {
+        height: 27rem;
+        width: 27rem;
+    }
+
+    &__spinner {
+        position: absolute;
+        top: 5rem;
+        left: 3.5rem;
+
+        @include sm {
+            left: 10rem;
+        }
+    }
 
     span {
         font-size: 2rem;
@@ -18,20 +34,31 @@
 
     &__upload{
         width: 100%;
-        @include flexRow(center, space-between);
+        @include flexCol(center, center);
+
+        @include sm {
+            @include flexRow(center, space-between);
+        }
         
         &--btn{
-            width: 10rem;
-            height: 4rem;
+            width: 100%;
+            border-radius: 0.5rem;
+            padding: 0.4rem;
             background-color: $gray-color;
             color: $alert-color;
-            padding: 1.2rem;
             font-family: $montserrat;
             font-size: 1.2rem;
             box-shadow: 2px 2px 8px 0px #9898;
-            border-radius: 0.7rem;
             cursor:pointer;
             text-align: center;
+            margin: 0.4rem 0rem;
+            
+            @include sm{
+                width: 10rem;
+                height: 4rem;
+                padding: 1.2rem;
+                border-radius: 0.7rem;
+            }
 
             &:hover{
                 background-color: $alert-color;

@@ -24,9 +24,9 @@ export const TrendingContainer = () => {
         <div ref={carousel} className="trending-container__gifs--container">
           {error && <h2>{error.message}</h2>}
           {!isLoading &&
-            data?.data.data.map(({ id, title, images }) => (
+            data?.data.data.map(({ id, title, images }, idx) => (
               <GifCard
-                key={id}
+                key={id + idx}
                 url={images.original.url}
                 title={title}
                 className="trending-container__gifs--container--card"
