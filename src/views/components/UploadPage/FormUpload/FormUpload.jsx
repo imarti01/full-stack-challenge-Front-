@@ -53,11 +53,11 @@ export const FormUpload = () => {
 
   return (
     <form className="form-upload">
-      {
+      {isLoading && (
         <div className="form-upload__spinner">
           <Spinner />
         </div>
-      }
+      )}
       <p>
         <span>1.</span> Add the title of your Gif:
       </p>

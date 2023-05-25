@@ -92,6 +92,8 @@
 
     ul {
         list-style: none;
+        @include flexRow(center, center);
+        
 
         li {
             @include flexRow(center, center);
