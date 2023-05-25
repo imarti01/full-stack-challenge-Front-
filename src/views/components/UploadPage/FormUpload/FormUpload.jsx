@@ -1,5 +1,4 @@
 import { useContext, useRef, useState } from 'react';
-import { BsFillSendFill } from 'react-icons/bs';
 import { IoIosClose } from 'react-icons/io';
 
 import './FormUpload.scss';
@@ -11,6 +10,9 @@ export const FormUpload = () => {
   const tagInput = useRef();
   const navigate = useNavigate();
   const { addGif } = useContext(UserContext);
+
+  const [isUrlOpen, setIsUrlOpen] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   const [formUpload, setFormUpload] = useState({
     title: '',
@@ -40,7 +42,7 @@ export const FormUpload = () => {
     formData.append('url', formUpload.url);
     formData.append('tags', tags);
     formData.append('file', formUpload.file);
-
+    setIsLoading(true);
     const res = await addGifRequest(formData);
     if (res.data?.ok) {
       addGif(res.data.newGif);
@@ -54,6 +56,7 @@ export const FormUpload = () => {
         <span>1.</span> Add the title of your Gif:
       </p>
       <input
+        className="form-upload__input"
         type="text"
         name="title"
         onChange={handleChange}
@@ -62,36 +65,52 @@ export const FormUpload = () => {
       <p>
         <span>2.</span> Add the Gif:
       </p>
-      <div>
-        <label>
+      <div className="form-upload__upload">
+        <label
+          className="form-upload__upload--btn"
+          onClick={() => setIsUrlOpen(false)}
+        >
           Upload File
-          <input type="file" name="file" onChange={handleUploadFile} />
-        </label>
-        OR
-        <label>
-          Add URL
           <input
-            type="text"
-            name="url"
-            onChange={handleChange}
-            value={formUpload.url}
+            className="form-upload__upload--btn--hidden"
+            type="file"
+            name="file"
+            onChange={handleUploadFile}
           />
         </label>
+        OR
+        <div
+          onClick={() => setIsUrlOpen(true)}
+          className="form-upload__upload--btn"
+        >
+          Add URL
+        </div>
       </div>
+      <input
+        className={isUrlOpen ? 'form-upload__url' : 'form-upload__url--close'}
+        type="text"
+        name="url"
+        onChange={handleChange}
+        value={formUpload.url}
+        placeholder="Type the url here"
+      />
       <p>
         <span>3.</span> Add tags:{' '}
       </p>
       <input
+        className="form-upload__input"
         type="text"
         name="tag"
         onKeyDown={(e) => e.key === 'Enter' && addTag(e)}
         ref={tagInput}
       />
+
       <ul>
         {tags.map((tag) => (
           <li key={tag}>
             #{tag}
             <IoIosClose
+              className="form-upload__remove-tag"
               onClick={() => {
                 setTags(tags.filter((el) => el !== tag));
               }}
@@ -100,9 +119,7 @@ export const FormUpload = () => {
         ))}
       </ul>
 
-      <button onClick={submitForm}>
-        <BsFillSendFill />
-      </button>
+      <button onClick={submitForm}>Add</button>
     </form>
   );
 };

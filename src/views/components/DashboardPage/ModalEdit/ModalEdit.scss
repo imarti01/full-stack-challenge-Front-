@@ -22,13 +22,78 @@
     }
 
     &__modal {
-        @include flexCol(center, space-evenly);
-        width: 60%;
+        @include flexCol(flex-start, space-evenly);
+        width: 50%;
         height: 60vh;
         border-radius: 1rem;
         background-color: $purple-color;
         opacity: 100%;
         z-index: 50;
         color: $white-color;
+        padding: 0.5rem 4rem 0.8rem;
+        position: relative;
+
+        &--close-btn{
+            color: $alert-color;
+            font-size: 2.7rem;
+            position: absolute;
+            top: 0.2rem;
+            right: 0.2rem;
+            cursor: pointer;
+        }
+
+        input {
+            @include authInput();
+            width: 100%;
+
+            &::placeholder{
+                color: $alert-color;
+                font-size: 0.85rem;
+            }
+        }
+
+        div {
+            width: 100%;
+            position: relative;
+        }
+        
+        p {
+            @include flexRow(center, center);
+            flex-wrap: wrap;
+            
+        }
+        
+        h4 {
+            padding-top: 0.5rem
+
+        }
+
+        span {
+            @include flexRow(center, center);
+            background-color: $gray-color;
+            color: $purple-color;
+            padding: 0.3rem 0.5rem 0.3rem 0.8rem;
+            border-radius: 12rem;
+            margin-right: 0.5rem;
+            text-align: center;
+            margin-bottom: 0.6rem;
+            box-shadow: 1px 1px 10px 0px #9898;
+        }
+
+        &--remove-tag {
+            font-size: 1.3rem;
+            margin-left: 0.4rem;
+            color: $alert-color;
+            cursor: pointer
+        }
+
+        button {
+            @include authButton();
+            width: 100%;
+            border: 1px solid $alert-color;
+            font-family: $montserrat;
+        }
+
+        
     }
 }

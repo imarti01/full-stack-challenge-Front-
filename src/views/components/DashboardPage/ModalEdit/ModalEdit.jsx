@@ -2,6 +2,7 @@ import { useContext, useRef, useState } from 'react';
 import { IoIosClose } from 'react-icons/io';
 import { editGifRequest } from '../../../../api/gifUserRequests';
 import { UserContext } from '../../../../context/UserContext';
+import { IoIosAddCircleOutline } from 'react-icons/io';
 import './ModalEdit.scss';
 
 export const ModalEdit = ({ gifToEdit, setGifToEdit }) => {
@@ -30,25 +31,32 @@ export const ModalEdit = ({ gifToEdit, setGifToEdit }) => {
     <div className="modal-edit">
       <div className="modal-edit__bg" onClick={() => setGifToEdit(null)}></div>
       <div className="modal-edit__modal">
-        <h2>EDIT</h2>
-        <p>Title:</p>
+        <IoIosClose
+          className="modal-edit__modal--close-btn"
+          onClick={() => setGifToEdit(null)}
+        />
+        <h4>Edit Title:</h4>
         <input
           type="text"
           value={title}
           onChange={(e) => setTitle(e.target.value)}
         />
-        <p>Tags:</p>
-        <input
-          type="text"
-          name="tag"
-          onKeyDown={(e) => e.key === 'Enter' && addTag(e)}
-          ref={tagInput}
-        />
+        <h4>Edit Tags:</h4>
+        <div>
+          <input
+            type="text"
+            name="tag"
+            onKeyDown={(e) => e.key === 'Enter' && addTag(e)}
+            ref={tagInput}
+            placeholder="Add a new tag and press Enter"
+          />
+        </div>
         <p>
           {tags.map((tag) => (
             <span key={tag}>
               #{tag}
               <IoIosClose
+                className="modal-edit__modal--remove-tag"
                 onClick={() => setTags(tags.filter((el) => el !== tag))}
               />
             </span>

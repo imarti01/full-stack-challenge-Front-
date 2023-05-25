@@ -51,7 +51,10 @@ export const ContainerOwnGifs = ({ gifs }) => {
               className="container-own-gifs__gifs--icons--edit"
               onClick={() => setGifToEdit(gif)}
             />
-            <AiTwotoneDelete onClick={() => deleteGif(gif._id)} />
+            <AiTwotoneDelete
+              className="container-own-gifs__gifs--icons--remove"
+              onClick={() => deleteGif(gif._id)}
+            />
           </span>
         </div>
       ))}

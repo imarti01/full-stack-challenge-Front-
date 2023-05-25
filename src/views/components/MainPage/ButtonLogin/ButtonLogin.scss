@@ -9,6 +9,10 @@
     &:link, &:visited, &:active{
         text-decoration: none;
     }
+
+    &:active {
+        transform: scale(0.99);
+      }
 }
 
 .button-info-user{

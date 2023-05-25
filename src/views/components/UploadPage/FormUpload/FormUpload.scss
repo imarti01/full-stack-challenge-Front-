@@ -10,4 +10,79 @@
     span {
         font-size: 2rem;
     }
+
+    &__input {
+        @include authInput();
+        width: 100%;
+    }
+
+    &__upload{
+        width: 100%;
+        @include flexRow(center, space-between);
+        
+        &--btn{
+            width: 10rem;
+            height: 4rem;
+            background-color: $gray-color;
+            color: $alert-color;
+            padding: 1.2rem;
+            font-family: $montserrat;
+            font-size: 1.2rem;
+            box-shadow: 2px 2px 8px 0px #9898;
+            border-radius: 0.7rem;
+            cursor:pointer;
+            text-align: center;
+
+            &:hover{
+                background-color: $alert-color;
+                color: $purple-color
+            }
+
+            &:active {
+                transform: scale(0.99);
+              }
+
+            &--hidden{
+                 display: none
+             }
+        }
+    }
+    button {
+        @include authButton();
+        width: 100%;
+        border: 1px solid $alert-color;
+    }
+
+    &__url{
+        @include authInput();
+        width: 100%;
+        
+        &--close{
+            display: none;
+
+        }
+    }
+
+    ul {
+        list-style: none;
+
+        li {
+            @include flexRow(center, center);
+            background-color: $gray-color;
+            color: $purple-color;
+            padding: 0.3rem 0.5rem 0.3rem 0.8rem;
+            border-radius: 12rem;
+            margin-right: 0.5rem;
+            text-align: center;
+            margin-bottom: 0.6rem;
+            box-shadow: 1px 1px 10px 0px #9898;
+        }
+    }
+
+    &__remove-tag{
+        font-size: 1.3rem;
+            margin-left: 0.4rem;
+            color: $alert-color;
+            cursor: pointer
+    }
 }

@@ -19,12 +19,24 @@
             margin-left: 0.8rem;
             margin-top: 0.7rem;
             font-size: 1.2rem;     
-            cursor: pointer;
             border: 1px solid $gray-color;
             border-radius: 0.6rem;
             
             &--edit {
                 margin-bottom: 1rem;
+                cursor: pointer;
+
+                &:hover{
+                    color: $alert-color;
+                }
+            }
+
+            &--remove {
+                cursor: pointer;
+
+                &:hover{
+                    color: $alert-color;
+                }
             }
         }
     }

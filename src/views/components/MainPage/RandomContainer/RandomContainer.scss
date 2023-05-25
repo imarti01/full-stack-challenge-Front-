@@ -28,6 +28,10 @@
                 color: $purple-color
             }
 
+            &:active {
+                transform: scale(0.99);
+              }
+
         }
 
         &--card {
